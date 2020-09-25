@@ -17,8 +17,6 @@ dependencies:
   cached_network_image: ^2.0.0
   #Equality Values
   equatable: ^1.2.5
-  #Functional Programming
-  dartz: ^0.9.1
   #State Management
   provider: any
   #HTTP

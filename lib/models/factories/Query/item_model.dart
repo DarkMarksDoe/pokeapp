@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../entities/item.dart';
+import '../../entities/Query/item.dart';
 
 class ItemModel extends Item {
   const ItemModel({

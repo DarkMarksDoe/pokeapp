@@ -23,6 +23,8 @@ dependencies:
   provider: any
   #HTTP
   http: any
+  #Local Storage
+  shared_preferences: ^0.5.12
 
 dev_dependencies:
   flutter_test:

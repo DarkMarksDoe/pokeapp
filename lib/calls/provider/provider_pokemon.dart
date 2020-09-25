@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
-import 'package:pokeapp/consts/const_api.dart';
 
-import '../../models/factories/pokemon_model.dart';
-import '../../models/factories/query_p_model.dart';
-import '../pokemonAPI.dart';
+import '../../consts/const_api.dart';
+import '../../models/factories/Pokemon/pokemon_model.dart';
+import '../../models/factories/Query/query_p_model.dart';
+import '../pokemon_API.dart';
 
 class PokemonProvider extends ChangeNotifier {
   List<PokemonModel> _pokemonsList = new List<PokemonModel>();

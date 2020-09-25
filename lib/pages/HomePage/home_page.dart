@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pokeapp/calls/local_storage_API.dart';
 import 'package:provider/provider.dart';
 
 import '../../calls/provider/provider_pokemon.dart';
-import '../../models/entities/types_p.dart';
+import '../../models/entities/Query/types_p.dart';
 import '../PokemonPage/pokemon_description_page.dart';
 import 'widgets/cardPokemon.dart';
 
@@ -14,6 +15,14 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Gotta Catch \'Em All!'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () async {
+              await LocalStorageApiCall().logOut();
+            },
+          ),
+        ],
       ),
       body: Container(
         height: screenHeight,

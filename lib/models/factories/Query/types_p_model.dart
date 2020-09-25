@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../entities/types_p.dart';
+import '../../entities/Query/types_p.dart';
 import 'type_p_model.dart';
 
 class TypesPModel extends TypesP {

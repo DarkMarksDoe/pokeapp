@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../consts/const_colors.dart';
-import '../../models/factories/pokemon_model.dart';
+import '../../models/factories/Pokemon/pokemon_model.dart';
 
 class PokemonDescriptionPage extends StatelessWidget {
   final PokemonModel pokemonModel;

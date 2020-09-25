@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
-import 'package:pokeapp/models/factories/pokemon_model.dart';
-import 'package:pokeapp/models/factories/type_p_model.dart';
-import 'package:pokeapp/models/factories/types_p_model.dart';
+import 'package:pokeapp/models/factories/Pokemon/pokemon_model.dart';
+import 'package:pokeapp/models/factories/Query/type_p_model.dart';
+import 'package:pokeapp/models/factories/Query/types_p_model.dart';
 
 void main() {
   final TypePModel newType =

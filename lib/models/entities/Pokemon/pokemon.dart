@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-import 'types_p.dart';
+import '../Query/types_p.dart';
 
 class Pokemon extends Equatable {
   final int baseExperience;

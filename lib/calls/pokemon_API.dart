@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import '../models/factories/pokemon_model.dart';
-import '../models/factories/query_p_model.dart';
+import '../models/factories/Pokemon/pokemon_model.dart';
+import '../models/factories/Query/query_p_model.dart';
 
 abstract class PokemonBase {
   Future<QueryPModel> getQuery(String url);

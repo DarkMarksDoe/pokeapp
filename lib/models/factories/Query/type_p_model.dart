@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-import '../entities/type_p.dart';
+import '../../entities/Query/type_p.dart';
+
 
 class TypePModel extends TypeP {
   const TypePModel({

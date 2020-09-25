@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
-import 'package:pokeapp/models/factories/item_model.dart';
-import 'package:pokeapp/models/factories/query_p_model.dart';
+import 'package:pokeapp/models/factories/Query/item_model.dart';
+import 'package:pokeapp/models/factories/Query/query_p_model.dart';
 
 void main() {
   final ItemModel itemModel =

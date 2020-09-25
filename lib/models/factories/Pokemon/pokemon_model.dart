@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../entities/pokemon.dart';
-import 'types_p_model.dart';
+import '../../entities/Pokemon/pokemon.dart';
+import '../Query/types_p_model.dart';
 
 class PokemonModel extends Pokemon {
   const PokemonModel({

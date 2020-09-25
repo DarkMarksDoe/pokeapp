@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../entities/query_p.dart';
+import '../../entities/Query/query_p.dart';
 import 'item_model.dart';
 
 class QueryPModel extends QueryP {

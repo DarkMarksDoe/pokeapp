@@ -39,8 +39,8 @@ class CardPokemon extends StatelessWidget {
                 height: 90,
                 fit: BoxFit.contain,
                 filterQuality: FilterQuality.low,
-                memCacheHeight: 150,
-                memCacheWidth: 150,
+                memCacheHeight: 200,
+                memCacheWidth: 200,
                 errorWidget: (context, string, _) {
                   return Image.asset(
                     'assets/images/img2.png',

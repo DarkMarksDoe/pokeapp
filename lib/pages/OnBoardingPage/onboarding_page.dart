@@ -41,16 +41,27 @@ class _OnboardingPageState extends State<OnboardingPage> {
       pages: [
         PageViewModel(
             title: 'This is a Challenge for ZipDev using Flutter',
-            body:
-                'This Welcome pages are created using "introduction_screen" in version 1.0.9',
+            body: 'This Welcome pages are created using "introduction_screen"',
             image: _buildImage('img1'),
             decoration: pageDecoration),
         PageViewModel(
             title:
                 'The Onboarding pages will disapear when you login into the app',
-            body: 'For that Im using "shared_preferences" in version 0.5.10',
+            body: 'For that Im using "shared_preferences"',
             image: _buildImage('img2'),
             decoration: pageDecoration),
+        PageViewModel(
+            title: 'For State Management, Provider was the "choice"',
+            body: 'For images, "cached_network_image"',
+            image: _buildImage('img3'),
+            decoration: pageDecoration),
+        PageViewModel(
+            title:
+                'This is Mark, well, a past version with long hair, University Student of 9 semester.',
+            body: 'If this work, this person build the app.',
+            footer: Text('If not, ignore the last comment.'),
+            image: _buildImage('elmarco'),
+            decoration: pageDecoration)
       ],
       onDone: () => _onIntroEnd(context),
       showNextButton: true,

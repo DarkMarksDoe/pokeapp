@@ -35,12 +35,12 @@ $ flutter run
 # Packages
 For save images into caché and avoid download the same image twice, so the plugin that i used was: 
 `cached_network_image` at version `2.0.0`.
-<br><br>
+<br><br><br>
 When i need to campare Objects with the same values, and avoid using the hash, the plugin Equality help you. 
 
 The plugin is:
 `equatable` at version `1.2.5`.
-<br><br>
+<br><br><br>
 In StateManagement, the easiest way (for me) is using Provider, provider was used only for update values of the list of pokes.
 
 The Plugin is:

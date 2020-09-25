@@ -25,6 +25,8 @@ dependencies:
   http: any
   #Local Storage
   shared_preferences: ^0.5.12
+  #Onboarding Pages
+  introduction_screen: ^1.0.9
 
 dev_dependencies:
   flutter_test:

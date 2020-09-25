@@ -1,7 +1,8 @@
 import 'dart:convert';
 
-import 'package:pokeapp/models/factories/User/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../models/factories/User/user_model.dart';
 
 abstract class PokemonBase {
   Future<UserModel> setData(UserModel userModel);
@@ -11,6 +12,14 @@ abstract class PokemonBase {
   Future<UserModel> getUser();
 
   Future logOut();
+
+  Future<bool> getJustInstalled();
+
+  Future setJustInstalled();
+
+  Future signUpEmailPassword(String email, String password);
+
+  Future login();
 }
 
 class LocalStorageApiCall with PokemonBase {
@@ -42,9 +51,11 @@ class LocalStorageApiCall with PokemonBase {
     var userJson = localStorage.get('user');
     if (userJson == null) {
       return null;
+    } else {
+      UserModel user =
+          UserModel.fromJson(json.decode(localStorage.get('user')));
+      return user;
     }
-    UserModel user = UserModel.fromJson(json.decode(localStorage.get('user')));
-    return user;
   }
 
   @override
@@ -57,5 +68,52 @@ class LocalStorageApiCall with PokemonBase {
       isLogged: false,
     );
     await setData(temporalUser);
+  }
+
+  @override
+  Future<bool> getJustInstalled() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    return localStorage.get('installed') == null ? false : true;
+  }
+
+  @override
+  Future setJustInstalled() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    localStorage.setBool('installed', true);
+  }
+
+  @override
+  Future signUpEmailPassword(String email, String password) async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    localStorage.setString(
+      'user',
+      json.encode(
+        UserModel(
+          email: email,
+          password: password,
+          id: 0,
+          isLogged: true,
+        ).toJson(),
+      ),
+    );
+    return email;
+  }
+
+  @override
+  Future login() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    UserModel user =
+        UserModel.fromJson(json.decode(localStorage.getString('user')));
+    localStorage.setString(
+      'user',
+      json.encode(
+        UserModel(
+          email: user.email,
+          password: user.password,
+          id: 0,
+          isLogged: true,
+        ).toJson(),
+      ),
+    );
   }
 }

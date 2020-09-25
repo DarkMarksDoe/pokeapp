@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../calls/local_storage_API.dart';
 import 'HomePage/home_page.dart';
+import 'LoginPage/login_page.dart';
 import 'OnBoardingPage/onboarding_page.dart';
 
 enum AuthStatus {
   notDetermined,
   notSignedIn,
   signedIn,
+  firstInstall,
 }
 
 class RootPage extends StatefulWidget {
@@ -34,20 +36,18 @@ class _RootPageState extends State<RootPage> {
   Widget build(BuildContext context) {
     switch (authStatus) {
       case AuthStatus.notDetermined:
-        setState(() {
-          authStatus = AuthStatus.notSignedIn;
-        });
+        setState(() => authStatus = AuthStatus.notDetermined);
         return _buildWaitingScreen();
       case AuthStatus.notSignedIn:
-        setState(() {
-          authStatus = AuthStatus.notSignedIn;
-        });
-        return OnboardingPage();
+        setState(() => authStatus = AuthStatus.notSignedIn);
+        return LoginPage();
       case AuthStatus.signedIn:
-        setState(() {
-          authStatus = AuthStatus.signedIn;
-        });
+        setState(() => authStatus = AuthStatus.signedIn);
         return HomePage();
+      case AuthStatus.firstInstall:
+        setState(() => authStatus = AuthStatus.notSignedIn);
+        return OnboardingPage();
+        break;
     }
     return null;
   }
@@ -63,13 +63,14 @@ class _RootPageState extends State<RootPage> {
 
   void _startupCheck() async {
     bool status = await LocalStorageApiCall().isLogged();
-    if (status)
-      setState(() {
-        authStatus = AuthStatus.signedIn;
-      });
-    else
-      setState(() {
-        authStatus = AuthStatus.notSignedIn;
-      });
+    bool installed = await LocalStorageApiCall().getJustInstalled();
+    if (installed) {
+      if (status)
+        setState(() => authStatus = AuthStatus.signedIn);
+      else
+        setState(() => authStatus = AuthStatus.notSignedIn);
+    } else {
+      setState(() => authStatus = AuthStatus.firstInstall);
+    }
   }
 }

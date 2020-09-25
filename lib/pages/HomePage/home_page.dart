@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pokeapp/calls/local_storage_API.dart';
 import 'package:provider/provider.dart';
 
+import '../../calls/local_storage_API.dart';
 import '../../calls/provider/provider_pokemon.dart';
 import '../../models/entities/Query/types_p.dart';
+import '../LoginPage/login_page.dart';
 import '../PokemonPage/pokemon_description_page.dart';
 import 'widgets/cardPokemon.dart';
 
@@ -20,6 +21,8 @@ class HomePage extends StatelessWidget {
             icon: Icon(Icons.exit_to_app),
             onPressed: () async {
               await LocalStorageApiCall().logOut();
+              Navigator.of(context).pushReplacement(new MaterialPageRoute(
+                  builder: (BuildContext newContext) => LoginPage()));
             },
           ),
         ],
